@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secret Code Site | Crypto Reward</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  background:
+    radial-gradient(ellipse at top, #493511 0%, transparent 55%),
+    linear-gradient(135deg, #050505, #171717, #080808);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 440px;
+  text-align: center;
+  padding: 35px 25px;
+  background: rgba(20, 20, 20, 0.94);
+  border: 1px solid #c99b36;
+  border-radius: 20px;
+  box-shadow: 0 0 35px rgba(230, 174, 53, 0.18);
+}
+
+.coin {
+  font-size: 65px;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 0 15px #dba72d);
+}
+
+h1 {
+  color: #f4c95d;
+  font-size: 29px;
+  margin: 10px 0;
+}
+
+.subtitle {
+  color: #c4c4c4;
+  line-height: 1.7;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #806323;
+  border-radius: 10px;
+  background: #090909;
+  color: white;
+  font-size: 16px;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+input:focus {
+  border-color: #ffd45e;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #b88620, #ffe28a, #c39227);
+  color: #15100a;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+#message {
+  margin-top: 20px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.reward {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #c99b36;
+  border-radius: 12px;
+  background: #15120a;
+}
+
+.reward h2 {
+  color: #f4c95d;
+}
+
+footer {
+  color: #777;
+  font-size: 11px;
+  margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+<main class="container">
+
+  <div class="coin">₿</div>
+
+  <h1>Unlock Your Crypto Reward</h1>
+
+  <p class="subtitle">
+    Enter your secret code to reveal your special reward.
+  </p>
+
+  <form id="rewardForm">
+    <input
+      type="password"
+      id="secretCode"
+      placeholder="Enter your secret code"
+      autocomplete="off"
+      required
+    >
+
+    <button type="submit">UNLOCK REWARD</button>
+  </form>
+
+  <p id="message" role="status"></p>
+
+  <section class="reward" id="reward">
+    <h2>🎁 Your Special Gift!</h2>
+    <p id="rewardMessage">
+      Congratulations! Your secret reward has been unlocked.
+    </p>
+  </section>
+
+  <footer>
+    Personal reward demo · No wallet connection required
+  </footer>
+
+</main>
+
+<script>
+const form = document.getElementById("rewardForm");
+const input = document.getElementById("secretCode");
+const message = document.getElementById("message");
+const reward = document.getElementById("reward");
+
+// DEMO ONLY: This code is visible in the page source.
+const demoCode = "LOVE2026";
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  if (input.value.trim() === demoCode) {
+    message.textContent = "";
+    reward.style.display = "block";
+    input.value = "";
+  } else {
+    reward.style.display = "none";
+    message.textContent = "❌ Invalid code. Please try again.";
+    message.style.color = "#ff7777";
+  }
+});
+</script>
+
+</body>
+</html>
+</escape>
